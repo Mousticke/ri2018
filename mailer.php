@@ -9,14 +9,14 @@ if($_POST){
     'telephone'      => $_POST['telephone']
   ];
 
-   $to      = 'timodzik@gmail.com,lucienfregosi@gmail.com';
+   $to      = 'akim.benchiha@gmail.com,ursula.salembere@ig2i.centralelille.com';
    $subject = 'New rencontres personne';
    $message = 'Une nouvelle personne s\'est inscrite' . $data['email'] . ' son nom:' . $data['name'] . ' phone: ' . $data['telephone'] . ' sa compagnie:' .
    $data['company'] . '.</br> Cette personne est interesse par un pack: ' . $data['pack'] . '.</br> Information
    complemantaire laissee par la personne : ' . $data['infos'] . '</br> On GERE SA MERE!';
 
-   $headers = 'From: recontres2016@ig2i.fr' . "\r\n" .
-   'Reply-To: recontres2016@ig2i.fr' . "\r\n" .
+   $headers = 'akim.benchiha@gmail.com' . "\r\n" .
+   'Reply-To: akim.benchiha@gmail.com' . "\r\n" .
    'X-Mailer: PHP/' . phpversion();
 
 
@@ -31,12 +31,12 @@ if($_POST){
   // ));
 }
   function syncMailchimp($data) {
-    $apiKey = 'eac3d5b09e0d7b3d1f5a5c4ec6cbb912-us13';
-    $listId = 'f0d54eefc6';
+    $apiKey = '02045807ee7bd2c7c7bff45063cce5a4-us18';
+    $listId = '8ac0a73c20';
 
     $memberId = md5(strtolower($data['email']));
     $dataCenter = substr($apiKey,strpos($apiKey,'-')+1);
-    $url = 'https://us13.api.mailchimp.com/3.0/lists/' . $listId . '/members';
+    $url = 'https://us18.api.mailchimp.com/3.0/lists/' . $listId . '/members';
 
     $json = json_encode([
         'email_address' => $data['email'],
